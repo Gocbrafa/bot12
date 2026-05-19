@@ -36,9 +36,9 @@ bot = commands.Bot(
 
 perguntas = [
     "📘 Qual seu nome no Roblox?",
-    "📘 Qual sua idade?",
-    "📘 Sua conta é verificada?",
-    "📘 Já participou de algum exército?",
+    "📘 Qual sua idade? {rp, não fale a sua real.}",
+    "📘 Qual a verificação da sua conta?",
+    "📘 Já participou de algum exército, Se sim, Quais?",
     "📘 Quais suas qualidades?",
     "📘 Você é leal à GOC?"
 ]
@@ -59,7 +59,7 @@ jj = [
 quiz = [
 
     {
-        "pergunta": 'O instrutor pergunta "Entenderam?"',
+        "pergunta": 'O instrutor pergunta "Entenderam?", Oque voçês Respondem?"',
         "opcoes": [
             "Sim.",
             "Tô ligado",
@@ -70,7 +70,7 @@ quiz = [
     },
 
     {
-        "pergunta": "Um superior passa na sua frente.",
+        "pergunta": "Um superior passa na sua frente, Oque voçê ira falar?",
         "opcoes": [
             "Saudações.",
             "Olá",
@@ -448,7 +448,7 @@ class Painel(View):
         await canal.send(
             embed=embed_padrao(
                 "📘 TESTE JJ",
-                "Digite corretamente os comandos."
+                "Digite corretamente os comandos, caso voçê não saiba oque é JJ, JJ é nosso polichinelos, por exemplo, um instrutor Ordena fazer 10 JJ."
             )
         )
 
