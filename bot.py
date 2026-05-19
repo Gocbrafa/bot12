@@ -9,7 +9,7 @@ TOKEN = os.getenv("TOKEN")
 GUILD_ID = 1464968098040905911
 CANAL_RECRUTAMENTO = 1501617632866996437
 CATEGORIA_RECRUTAMENTO = 1501617632866996438
-CANAL_LOGS = 1501617632866996439
+CANAL_LOGS = 1501617700726636544
 
 CARGO_AVALIADOR = 1501617430915715233
 
@@ -36,8 +36,8 @@ bot = commands.Bot(
 
 perguntas = [
     "📘 Qual seu nome no Roblox?",
-    "📘 Qual sua idade? {rp, não fale a sua real.}",
-    "📘 Qual a verificação da sua conta?",
+    "📘 Qual sua idade? {RP, **Não fale a sua real.**}",
+    "📘 Qual a verificação da sua conta no roblox?",
     "📘 Já participou de algum exército, Se sim, Quais?",
     "📘 Quais suas qualidades?",
     "📘 Você é leal à GOC?"
@@ -194,7 +194,7 @@ class Painel(View):
                 super().__init__(timeout=None)
 
             @discord.ui.button(
-                label="CANCELAR",
+                label="CANCELAR RECRUTAMENTO",
                 style=discord.ButtonStyle.red
             )
 
@@ -436,9 +436,9 @@ class Painel(View):
                 "PPAX = Permissão Para Auxiliar\n"
                 "STS! = Ombro á Ombro\n"
                 "CUNHA! = Formação em V\n"
-                "FILA ÚNICA! = Uma fila\n"
-                "FILA DUPLA! = Duas filas\n"
-                "FILA TRIPLA! = Três filas"
+                "FILA ÚNICA! = Uma fila atrás de seu instrutor\n"
+                "FILA DUPLA! = Duas filas atrás de seu instrutor\n"
+                "FILA TRIPLA! = Três filas atrás de seu instrutor"
             ),
             view=p1
         )
@@ -448,7 +448,37 @@ class Painel(View):
         await canal.send(
             embed=embed_padrao(
                 "📘 TESTE JJ",
-                "Digite corretamente os comandos, caso voçê não saiba oque é JJ, JJ é nosso polichinelos, por exemplo, um instrutor Ordena fazer 10 JJ."
+                "**Oque você precisa saber?**
+
+1. JJs Jumping Jacks.
+
+Traduzido para o português como polichinelos, é o meio que usamos para simulá-los no nosso Roleplay.
+
+**Exemplo:**
+
+Instrutor: Soldados, Façam 5 JJs!
+
+Soldado: UM!
+Soldado: DOIS!
+Soldado: TRÊS!
+Soldado: QUATRO!
+Soldado: CINCO!
+
+Instrutor: muito bem, Soldado!
+
+**No que devo me atentar quanto a isso?**
+
+!. Os números devem ser em ***EXTENSO***
+
+Extenso, quer dizer o "nome" dos Números.
+Exemplo:invés de 129, o correto é CENTO E VINTE E NOVE.
+
+2. os JJs devem sempre ser feitos com **Letras maiúsculas.** 
+Exemplo: ABCDEFGHIJKLMNOPQRSTUWXYZ, Invés de letras minúsculas.
+
+**Agora, com a base do ensino anterior, faça 10 jjs**
+
+***IMPORTANTE, ENVIE UM NÚMERO POR MENSAGENS, NÃO TODOS COLADOS!**"
             )
         )
 
