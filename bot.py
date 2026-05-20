@@ -445,67 +445,68 @@ class Painel(View):
 
         await p1.wait()
 
-await canal.send(
-    embed=embed_padrao(
-        "📘 TESTE JJ",
+        await canal.send(
+            embed=embed_padrao(
+                "📘 TESTE JJ",
 
-        "**O que você precisa saber?**\n\n"
+                "**O que você precisa saber?**\n\n"
 
-        "1. JJ's | Jumping Jacks.\n\n"
+                "1. JJ's | Jumping Jacks.\n\n"
 
-        "Traduzido para o português como polichinelos, é o meio que usamos "
-        "para simulá-los no nosso Role Play.\n\n"
+                "Traduzido para o português como polichinelos, é o meio que usamos "
+                "para simulá-los no nosso Role Play.\n\n"
 
-        "**Exemplo:**\n\n"
+                "**Exemplo:**\n\n"
 
-        "Instrutor: Soldados, façam 5 JJ's!\n\n"
+                "Instrutor: Soldados, façam 5 JJ's!\n\n"
 
-        "Soldado: UM!\n"
-        "Soldado: DOIS!\n"
-        "Soldado: TRÊS!\n"
-        "Soldado: QUATRO!\n"
-        "Soldado: CINCO!\n\n"
+                "Soldado: UM!\n"
+                "Soldado: DOIS!\n"
+                "Soldado: TRÊS!\n"
+                "Soldado: QUATRO!\n"
+                "Soldado: CINCO!\n\n"
 
-        "Instrutor: Muito bem, Soldado!\n\n"
+                "Instrutor: Muito bem, Soldado!\n\n"
 
-        "**No que devo me atentar quanto a isso?**\n\n"
+                "**No que devo me atentar quanto a isso?**\n\n"
 
-        "1. Os números devem ser em **EXTENSO**.\n\n"
+                "1. Os números devem ser em **EXTENSO**.\n\n"
 
-        "Extenso quer dizer o 'nome' dos números.\n"
-        "Exemplo: invés de 129, o correto é "
-        "CENTO E VINTE E NOVE.\n\n"
+                "Extenso quer dizer o 'nome' dos números.\n"
+                "Exemplo: invés de 129, o correto é "
+                "CENTO E VINTE E NOVE.\n\n"
 
-        "2. Os JJ's devem sempre ser feitos "
-        "com letras maiúsculas.\n"
-        "(ABCDEFGHIJKLMNOPQRSTUVWXYZ)\n"
-        "invés de letras minúsculas.\n\n"
+                "2. Os JJ's devem sempre ser feitos "
+                "com letras maiúsculas.\n"
+                "(ABCDEFGHIJKLMNOPQRSTUVWXYZ)\n"
+                "invés de letras minúsculas.\n\n"
 
-        "Agora, com base no ensino anterior, faça 10 JJ's.\n\n"
+                "Agora, com base no ensino anterior, faça 10 JJ's.\n\n"
 
-        "⚠️ ATENÇÃO — REGRA IMPORTANTE:\n"
-        "━━━━━━━━━━━━━━━━━━\n\n"
+                "⚠️ ATENÇÃO — REGRA IMPORTANTE:\n"
+                "━━━━━━━━━━━━━━━━━━\n\n"
 
-        "📌 ENVIE UM NÚMERO POR MENSAGEM!\n"
-        "📌 NÃO ENVIE DOIS OU MAIS NA MESMA MENSAGEM!\n\n"
+                "📌 ENVIE UM NÚMERO POR MENSAGEM!\n"
+                "📌 NÃO ENVIE DOIS OU MAIS NA MESMA MENSAGEM!\n\n"
 
-        "━━━━━━━━━━━━━━━━━━\n\n"
+                "━━━━━━━━━━━━━━━━━━\n\n"
 
-        "✅ CERTO (cada um em uma mensagem separada):\n\n"
+                "✅ CERTO (cada um em uma mensagem separada):\n\n"
 
-        "Mensagem 1: UM!\n"
-        "Mensagem 2: DOIS!\n"
-        "Mensagem 3: TRÊS!\n"
-        "(e assim por diante, até DEZ!)\n\n"
+                "Mensagem 1: UM!\n"
+                "Mensagem 2: DOIS!\n"
+                "Mensagem 3: TRÊS!\n"
+                "(e assim por diante até DEZ!)\n\n"
 
-        "❌ ERRADO (tudo junto na mesma mensagem):\n\n"
+                "❌ ERRADO (tudo junto na mesma mensagem):\n\n"
 
-        "`UM DOIS TRÊS QUATRO`\n\n"
+                "`UM DOIS TRÊS QUATRO`\n\n"
 
-        "IMPORTANTE:\n"
-        "Caso erre, você voltará do UM novamente."
-    )
-)
+                "IMPORTANTE:\n"
+                "Caso erre, você voltará do UM novamente."
+            )
+        )
+
         indice = 0
 
         while indice < len(jj):
@@ -524,21 +525,24 @@ await canal.send(
                 check=check
             )
 
-if " " in resposta.content.strip():
+            mensagem = resposta.content.strip().upper()
 
-    indice = 0
+            if " " in mensagem:
 
-    await canal.send(
-        embed=embed_padrao(
-            "❌ ERRADO",
-            "❌ Você enviou mais de um JJ na mesma mensagem.\n\n"
-            "Recomeçando do UM!"
-        )
-    )
+                indice = 0
 
-    continue
+                await canal.send(
+                    embed=embed_padrao(
+                        "❌ ERRADO",
+                        "Você enviou mais de um JJ na mesma mensagem.\n\n"
+                        "Recomeçando do UM!"
+                    )
+                )
 
-if resposta.content.upper() == palavra:
+                continue
+
+            if mensagem == palavra:
+
                 indice += 1
 
                 await canal.send(
