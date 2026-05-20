@@ -9,7 +9,7 @@ TOKEN = os.getenv("TOKEN")
 GUILD_ID = 1464968098040905911
 CANAL_RECRUTAMENTO = 1501617632866996437
 CATEGORIA_RECRUTAMENTO = 1501617632866996438
-CANAL_LOGS = 1501617700726636544
+CANAL_LOGS = 1501617632866996439
 
 CARGO_AVALIADOR = 1501617430915715233
 
@@ -35,10 +35,10 @@ bot = commands.Bot(
 )
 
 perguntas = [
-    "📘 Qual seu nome no Roblox?",
-    "📘 Qual sua idade? {RP, **Não fale a sua real.**}",
-    "📘 Qual a verificação da sua conta no roblox?",
-    "📘 Já participou de algum exército, Se sim, Quais?",
+    "📘 Qual seu nick no Roblox?",
+    "📘 Qual sua idade [NÃO DIGA A SUA REAL, APENAS DO RP.]?",
+    "📘 Sua conta do roblox é verifica em qual idade?",
+    "📘 Já participou de algum exército?",
     "📘 Quais suas qualidades?",
     "📘 Você é leal à GOC?"
 ]
@@ -59,7 +59,7 @@ jj = [
 quiz = [
 
     {
-        "pergunta": 'O instrutor pergunta "Entenderam?", Oque voçês Respondem?"',
+        "pergunta": 'O instrutor pergunta "Entenderam?"',
         "opcoes": [
             "Sim.",
             "Tô ligado",
@@ -70,7 +70,7 @@ quiz = [
     },
 
     {
-        "pergunta": "Um superior passa na sua frente, Oque voçê ira falar?",
+        "pergunta": "Um superior passa na sua frente.",
         "opcoes": [
             "Saudações.",
             "Olá",
@@ -84,8 +84,8 @@ quiz = [
         "pergunta": "O que significa PPS?",
         "opcoes": [
             "Permissão Para Sair",
-            "Bater no meu amigo",
-            "Permissão para auxiliar",
+            "Permissão Para Bater no james",
+            "Permissão Para Sentar",
             "Permissão Para Atirar"
         ],
         "correta": "Permissão Para Sair"
@@ -194,7 +194,7 @@ class Painel(View):
                 super().__init__(timeout=None)
 
             @discord.ui.button(
-                label="CANCELAR RECRUTAMENTO",
+                label="CANCELAR",
                 style=discord.ButtonStyle.red
             )
 
@@ -436,52 +436,76 @@ class Painel(View):
                 "PPAX = Permissão Para Auxiliar\n"
                 "STS! = Ombro á Ombro\n"
                 "CUNHA! = Formação em V\n"
-                "FILA ÚNICA! = Uma fila atrás de seu instrutor\n"
-                "FILA DUPLA! = Duas filas atrás de seu instrutor\n"
-                "FILA TRIPLA! = Três filas atrás de seu instrutor"
+                "FILA ÚNICA! = Uma fila atrás do instrutor.\n"
+                "FILA DUPLA! = Duas filas atrás do instrutor.\n"
+                "FILA TRIPLA! = Três filas atrás do instrutor."
             ),
             view=p1
         )
 
         await p1.wait()
 
-        await canal.send(
-            embed=embed_padrao(
-                "📘 TESTE JJ",
-                "**Oque você precisa saber?**
+await canal.send(
+    embed=embed_padrao(
+        "📘 TESTE JJ",
 
-1. JJs Jumping Jacks.
+        "**O que você precisa saber?**\n\n"
 
-Traduzido para o português como polichinelos, é o meio que usamos para simulá-los no nosso Roleplay.
+        "1. JJ's | Jumping Jacks.\n\n"
 
-**Exemplo:**
+        "Traduzido para o português como polichinelos, é o meio que usamos "
+        "para simulá-los no nosso Role Play.\n\n"
 
-Instrutor: Soldados, Façam 5 JJs!
+        "**Exemplo:**\n\n"
 
-Soldado: UM!
-Soldado: DOIS!
-Soldado: TRÊS!
-Soldado: QUATRO!
-Soldado: CINCO!
+        "Instrutor: Soldados, façam 5 JJ's!\n\n"
 
-Instrutor: muito bem, Soldado!
+        "Soldado: UM!\n"
+        "Soldado: DOIS!\n"
+        "Soldado: TRÊS!\n"
+        "Soldado: QUATRO!\n"
+        "Soldado: CINCO!\n\n"
 
-**No que devo me atentar quanto a isso?**
+        "Instrutor: Muito bem, Soldado!\n\n"
 
-!. Os números devem ser em ***EXTENSO***
+        "**No que devo me atentar quanto a isso?**\n\n"
 
-Extenso, quer dizer o "nome" dos Números.
-Exemplo:invés de 129, o correto é CENTO E VINTE E NOVE.
+        "1. Os números devem ser em **EXTENSO**.\n\n"
 
-2. os JJs devem sempre ser feitos com **Letras maiúsculas.** 
-Exemplo: ABCDEFGHIJKLMNOPQRSTUWXYZ, Invés de letras minúsculas.
+        "Extenso quer dizer o 'nome' dos números.\n"
+        "Exemplo: invés de 129, o correto é "
+        "CENTO E VINTE E NOVE.\n\n"
 
-**Agora, com a base do ensino anterior, faça 10 jjs**
+        "2. Os JJ's devem sempre ser feitos "
+        "com letras maiúsculas.\n"
+        "(ABCDEFGHIJKLMNOPQRSTUVWXYZ)\n"
+        "invés de letras minúsculas.\n\n"
 
-***IMPORTANTE, ENVIE UM NÚMERO POR MENSAGENS, NÃO TODOS COLADOS!**"
-            )
-        )
+        "Agora, com base no ensino anterior, faça 10 JJ's.\n\n"
 
+        "⚠️ ATENÇÃO — REGRA IMPORTANTE:\n"
+        "━━━━━━━━━━━━━━━━━━\n\n"
+
+        "📌 ENVIE UM NÚMERO POR MENSAGEM!\n"
+        "📌 NÃO ENVIE DOIS OU MAIS NA MESMA MENSAGEM!\n\n"
+
+        "━━━━━━━━━━━━━━━━━━\n\n"
+
+        "✅ CERTO (cada um em uma mensagem separada):\n\n"
+
+        "Mensagem 1: UM!\n"
+        "Mensagem 2: DOIS!\n"
+        "Mensagem 3: TRÊS!\n"
+        "(e assim por diante, até DEZ!)\n\n"
+
+        "❌ ERRADO (tudo junto na mesma mensagem):\n\n"
+
+        "`UM DOIS TRÊS QUATRO`\n\n"
+
+        "IMPORTANTE:\n"
+        "Caso erre, você voltará do UM novamente."
+    )
+)
         indice = 0
 
         while indice < len(jj):
@@ -500,8 +524,21 @@ Exemplo: ABCDEFGHIJKLMNOPQRSTUWXYZ, Invés de letras minúsculas.
                 check=check
             )
 
-            if resposta.content.upper() == palavra:
+if " " in resposta.content.strip():
 
+    indice = 0
+
+    await canal.send(
+        embed=embed_padrao(
+            "❌ ERRADO",
+            "❌ Você enviou mais de um JJ na mesma mensagem.\n\n"
+            "Recomeçando do UM!"
+        )
+    )
+
+    continue
+
+if resposta.content.upper() == palavra:
                 indice += 1
 
                 await canal.send(
