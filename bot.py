@@ -721,20 +721,79 @@ class Painel(View):
 
                 membro = guild.get_member(user.id)
 
-                for cargo_id in CARGOS_RECRUTA:
+# REMOVE TODOS OS CARGOS ANTIGOS
+for cargo in membro.roles:
 
-                    cargo = guild.get_role(cargo_id)
+    if cargo != guild.default_role and cargo.id not in CARGOS_RECRUTA:
 
-                    if cargo:
+        try:
+            await membro.remove_roles(cargo)
+        except:
+            pass
 
-                        await membro.add_roles(cargo)
+# ADICIONA OS NOVOS CARGOS
+for cargo_id in CARGOS_RECRUTA:
 
-                patente = guild.get_role(PATENTE_INICIAL)
+    cargo = guild.get_role(cargo_id)
 
-                if patente:
+    if cargo:
 
-                    await membro.add_roles(patente)
+        await membro.add_roles(cargo)
 
+# ADICIONA PATENTE
+patente = guild.get_role(PATENTE_INICIAL)
+
+if patente:
+
+    await membro.add_roles(patente)
+
+# MUDA O NOME
+try:
+
+    nick_novo = f"[𝚁𝙴𝙲 - 🪖] {membro.name}"
+
+    if len(nick_novo) > 32:
+        nick_novo = nick_novo[:32]
+
+    await membro.edit(nick=nick_novo)
+
+except:
+    pass
+
+# MANDA DM
+try:
+
+    embed_dm = discord.Embed(
+        title="📘 Você foi aprovado na UNGOC!",
+        description=(
+            "***Instruções para novatos:***\n\n"
+
+            "**1 | 📒 - Leia as regras do servidor.\n\n"
+
+            "2 | 🪖 - Já temos uma farda própria.\n\n"
+
+            "3 | 🔎 - Em caso de dúvidas vá ao canal de dúvidas.\n\n"
+
+            "4 | 🫂 - Adicione:\n"
+            "`Dpuglas68`\n\n"
+
+            "5 | 🗣️ - Fale com gramática.\n\n"
+
+            "6 | 🤫 - Evite falar desnecessariamente.\n\n"
+
+            "7 | 🤔 - Código da farda:\n\n"
+
+            "`BH-AE-ed91239a88084da3aae6ea779fe2494c`\n\n"
+
+            "***Boa sorte na UNGOC! 🫡🇺🇳***"
+        ),
+        color=discord.Color.blue()
+    )
+
+    await membro.send(embed=embed_dm)
+
+except:
+    pass
                 await interaction2.response.send_message(
                     "✅ Usuário aprovado com sucesso.",
                     ephemeral=True
