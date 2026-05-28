@@ -794,19 +794,20 @@ try:
 
 except:
     pass
-                await interaction2.response.send_message(
-                    "✅ Usuário aprovado com sucesso.",
-                    ephemeral=True
-                )
 
-                await canal.send(
-                    embed=embed_padrao(
-                        "✅ RECRUTAMENTO APROVADO",
-                        f"{user.mention}\n\n"
-                        "Parabéns soldado.\n\n"
-                        "AVANTE G.O.C 🇺🇳"
-                    )
-                )
+await interaction2.response.send_message(
+    "✅ Usuário aprovado com sucesso.",
+    ephemeral=True
+)
+
+await canal.send(
+    embed=embed_padrao(
+        "✅ RECRUTAMENTO APROVADO",
+        f"{user.mention}\n\n"
+        "Parabéns soldado.\n\n"
+        "AVANTE G.O.C 🇺🇳"
+    )
+)
 
                 logs = bot.get_channel(CANAL_LOGS)
 
